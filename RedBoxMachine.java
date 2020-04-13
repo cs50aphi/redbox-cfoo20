@@ -47,8 +47,7 @@ public class RedBoxMachine
          // if already exists
          if (movie.getTitle().equals(title))
          {
-            // add 1 copy
-            movie.incrementCopies();
+            System.out.println(movie.toString());
             return movies.indexOf(movie);
          }
       }
@@ -70,7 +69,6 @@ public class RedBoxMachine
          // add each title of movie to titles
          titles.add(movie.getTitle());
       }
-      // System.out.println(movies.toString());
       return titles;
    }
 
@@ -85,26 +83,22 @@ public class RedBoxMachine
    {
       // Complete the method to rent a movie.
       // loop through arraylist for title
-      // for (DVD movie : movies)
-      // {
-      //    // if already exists
-      //    if (movie.getTitle().equals(title))
-      //    {
-      //       // add 1 copy
-      //       movie.incrementCopies();
-      //       return movies.indexOf(movie);
-      //    }
-      // }
-      if (movies.indexOf(title) >= 0)
+      for (DVD movie : movies)
       {
-          movies.get(movies.indexOf(title)).decrementCopies();
-          return true;
+         // if already exists
+         if (movie.getTitle().equals(title))
+         {
+            // take away 1 copy
+            movie.decrementCopies();
+            // if 0, remove
+            if (movie.getNumCopies() == 0)
+            {
+               movies.remove(movie);
+            }
+            return true;
+         }
       }
-      else
-      {
          return false;
-      }
-
    }
 
    /** Allows a customer to return a movie. When the movie is returned, the number

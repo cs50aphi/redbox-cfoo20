@@ -73,7 +73,7 @@ public class RedBoxUI
             }
             else
             {
-               System.out.println(title + " was found.");
+                System.out.println(title + " has an available copy.");
             }
 
          }
