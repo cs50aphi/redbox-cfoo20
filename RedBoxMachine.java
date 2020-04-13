@@ -14,7 +14,7 @@ public class RedBoxMachine
    //Create an instance variable to hold all of the DVDs.
 
    /** the list of DVDs */
-   
+   private ArrayList<DVD> movies;
    /** Constructs a Redbox Machine and fills it with DVDs
     *  Reads the file MovieList.txt so make sure that the
     *  file is in the same folder as the RedboxMachine.class
@@ -40,6 +40,7 @@ public class RedBoxMachine
       // Complete the method to search for a movie.
       // If placement is -1, then the movie isn't there.
       // Find the index of i if the movie is there.
+      return movies.indexOf(title);
    }
    
    /** Returns the titles of all available DVD's in
@@ -50,7 +51,15 @@ public class RedBoxMachine
    public ArrayList<String> getAvailableMovies()
    {
       // Complete the method to get all available movie titles.
-
+      ArrayList<String> titles = new ArrayList<String>;
+      for (DVD movie : movies)
+      {
+         if (movie.getNumCopies() > 0)
+         {
+            titles.add(movie.getTitle());
+         }
+      }
+      return titles;
    }
    
    /** Allows a customer to rent a movie. When the movie is rented, the number 
