@@ -102,6 +102,7 @@ public class RedBoxMachine
       {
          movies.add(new DVD(title));
       }
+      return movies.get(movies.indexOf(title));
    }
 
    /** This method fills the machine with movies. You do not have

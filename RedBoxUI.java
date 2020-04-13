@@ -39,6 +39,7 @@ public class RedBoxUI
             // Complete the code to rent a movie. This code should let the user
             // know if the movie was rented successfully or not (not could occur if
             // the movie they enter is not available).
+            
          }
          else if(option == 3)
          {
