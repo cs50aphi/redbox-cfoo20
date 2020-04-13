@@ -96,7 +96,11 @@ public class RedBoxMachine
       // Complete the method to return a movie.
       if (movies.indexOf(title) > -1)
       {
-         
+         movies.get(movies.indexOf(title)).incrementCopies()
+      }
+      else
+      {
+         movies.add(new DVD(title));
       }
    }
 
