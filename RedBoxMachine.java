@@ -14,7 +14,7 @@ public class RedBoxMachine
    //Create an instance variable to hold all of the DVDs.
 
    /** the list of DVDs */
-   private ArrayList<DVD> movies;
+   private ArrayList<DVD> movies = new ArrayList<DVD>();
    /** Constructs a Redbox Machine and fills it with DVDs
     *  Reads the file MovieList.txt so make sure that the
     *  file is in the same folder as the RedboxMachine.class
@@ -24,9 +24,11 @@ public class RedBoxMachine
    public RedBoxMachine()
    {
       // Complete the constructor.
-      movies = new ArrayList<DVD>();
+      // ArrayList<DVD> movies = new ArrayList<DVD>();
+      movies.add(new DVD("Hello"));
+      System.out.println(movies.toString());
       // Leave this method. It will fill the machine with DVDs.
-      fillMachine();
+      // fillMachine();
    }
 
    /** Searches for the movie with the provided title and returns
@@ -40,6 +42,10 @@ public class RedBoxMachine
    {
       // Complete the method to search for a movie.
       // If placement is -1, then the movie isn't there.
+      if (movies.indexOf(title) < 0)
+      {
+         return -1;
+      }
       // Find the index of i if the movie is there.
       return movies.indexOf(title);
    }
@@ -73,7 +79,7 @@ public class RedBoxMachine
    public boolean rent(String title)
    {
       // Complete the method to rent a movie.
-      if (movies.indexOf(title) > -1)
+      if (movies.indexOf(title) >= 0)
       {
           movies.get(movies.indexOf(title)).decrementCopies();
           return true;
@@ -94,14 +100,22 @@ public class RedBoxMachine
    public DVD returnMovie(String title)
    {
       // Complete the method to return a movie.
-      if (movies.indexOf(title) > -1)
-      {
-         movies.get(movies.indexOf(title)).incrementCopies();
-      }
-      else
-      {
-         movies.add(new DVD(title));
-      }
+      // if (movies.indexOf(title) >= 0)
+      // {
+      //    movies.get(movies.indexOf(title)).incrementCopies();
+      // }
+      // else
+      // {
+      System.out.println(title);
+      DVD testing = new DVD(title);
+      System.out.println(testing.toString());
+      System.out.println("Test");
+      movies.add(testing);
+      System.out.println(movies.toString());
+      System.out.println(movies.indexOf(title));
+      System.out.println("Test 2");
+      // }
+
       return movies.get(movies.indexOf(title));
    }
 

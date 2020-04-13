@@ -26,7 +26,10 @@ public class RedBoxUI
             //Complete the code to List Available Titles.
             ArrayList<String> availableTitles = new ArrayList<String>();
             availableTitles = rm.getAvailableMovies();
-            System.out.println(availableTitles);
+            for (String movie : availableTitles)
+            {
+               System.out.println(availableTitles.toString());
+            }
 
             System.out.println("PRESS ENTER TO GO BACK TO THE MENU");
             sn.nextLine();
@@ -72,7 +75,7 @@ public class RedBoxUI
             }
             else
             {
-               System.out.println(title + "was not found.");
+               System.out.println(title + "was found.");
             }
 
          }
