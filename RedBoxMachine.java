@@ -59,6 +59,17 @@ public class RedBoxMachine
    {
       // Complete the method to get all available movie titles.
       ArrayList<String> titles = new ArrayList<String>();
+      // loop through arraylist for title
+      for (DVD movie : movies)
+      {
+         // if already exists
+         if (movie.getTitle().equals(title))
+         {
+            // add 1 copy
+            movie.incrementCopies();
+            return movies.indexOf(movie);
+         }
+      }
       for (DVD movie : movies)
       {
          if (movie.getNumCopies() > 0)
@@ -79,6 +90,17 @@ public class RedBoxMachine
    public boolean rent(String title)
    {
       // Complete the method to rent a movie.
+      // loop through arraylist for title
+      for (DVD movie : movies)
+      {
+         // if already exists
+         if (movie.getTitle().equals(title))
+         {
+            // add 1 copy
+            movie.incrementCopies();
+            return movies.indexOf(movie);
+         }
+      }
       if (movies.indexOf(title) >= 0)
       {
           movies.get(movies.indexOf(title)).decrementCopies();
@@ -100,23 +122,24 @@ public class RedBoxMachine
    public DVD returnMovie(String title)
    {
       // Complete the method to return a movie.
-      // if (movies.indexOf(title) >= 0)
-      // {
-      //    movies.get(movies.indexOf(title)).incrementCopies();
-      // }
-      // else
-      // {
-      System.out.println(title);
-      DVD testing = new DVD(title);
-      System.out.println(testing.toString());
+      // loop through arraylist for title
+      for (DVD movie : movies)
+      {
+         // if already exists
+         if (movie.getTitle().equals(title))
+         {
+            // add 1 copy
+            movie.incrementCopies();
+            return movie;
+         }
+      }
+      // if doesn't exist, add to movies
       System.out.println("Test");
-      movies.add(testing);
+      movies.add(new DVD(title));
       System.out.println(movies.toString());
-      System.out.println(movies.getTitle(indexOf(title)));
       System.out.println("Test 2");
-      // }
 
-      return movies.get(movies.indexOf(title));
+      return DVD(title);
    }
 
    /** This method fills the machine with movies. You do not have
