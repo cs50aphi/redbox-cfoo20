@@ -24,7 +24,7 @@ public class RedBoxMachine
    public RedBoxMachine()
    {
       // Complete the constructor.
-      movies = new ArrayList<DVD>;
+      movies = new ArrayList<DVD>();
       // Leave this method. It will fill the machine with DVDs.
       fillMachine();
    }
@@ -52,7 +52,7 @@ public class RedBoxMachine
    public ArrayList<String> getAvailableMovies()
    {
       // Complete the method to get all available movie titles.
-      ArrayList<String> titles = new ArrayList<String>;
+      ArrayList<String> titles = new ArrayList<String>();
       for (DVD movie : movies)
       {
          if (movie.getNumCopies() > 0)
@@ -96,7 +96,7 @@ public class RedBoxMachine
       // Complete the method to return a movie.
       if (movies.indexOf(title) > -1)
       {
-         movies.get(movies.indexOf(title)).incrementCopies()
+         movies.get(movies.indexOf(title)).incrementCopies();
       }
       else
       {
