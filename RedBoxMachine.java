@@ -20,14 +20,15 @@ public class RedBoxMachine
     *  file is in the same folder as the RedboxMachine.class
     *  file.
     */
-    
+
    public RedBoxMachine()
    {
       // Complete the constructor.
+      movies = new ArrayList<DVD>;
       // Leave this method. It will fill the machine with DVDs.
       fillMachine();
    }
-   
+
    /** Searches for the movie with the provided title and returns
     *  the position of the DVD in the list if the DVD is found and
     *  -1 if the DVD is not in the list.
@@ -42,7 +43,7 @@ public class RedBoxMachine
       // Find the index of i if the movie is there.
       return movies.indexOf(title);
    }
-   
+
    /** Returns the titles of all available DVD's in
     *  the machine.
     *  @return an ArrayList of Strings containing the
@@ -61,8 +62,8 @@ public class RedBoxMachine
       }
       return titles;
    }
-   
-   /** Allows a customer to rent a movie. When the movie is rented, the number 
+
+   /** Allows a customer to rent a movie. When the movie is rented, the number
     *  of available copies is reduced by 1. If there are 0 copies of the movie left
     *  after the transaction, the movie is removed from the list.
     *  @param title the title of the movie being rented.
@@ -72,19 +73,33 @@ public class RedBoxMachine
    public boolean rent(String title)
    {
       // Complete the method to rent a movie.
+      if (movies.indexOf(title) > -1)
+      {
+          movies.get(movies.indexOf(title)).decrementCopies();
+          return true;
+      }
+      else
+      {
+         return false;
+      }
+
    }
-   
-   /** Allows a customer to return a movie. When the movie is returned, the number 
-    *  of available copies is increased by 1. If the movie was not already in the 
+
+   /** Allows a customer to return a movie. When the movie is returned, the number
+    *  of available copies is increased by 1. If the movie was not already in the
     *  machine, then the DVD is added to the list.
     *  @param title the title of the movie being returned.
     *  @return the DVD that was returned by the customer.
-    */ 
+    */
    public DVD returnMovie(String title)
    {
       // Complete the method to return a movie.
+      if (movies.indexOf(title) > -1)
+      {
+         
+      }
    }
-   
+
    /** This method fills the machine with movies. You do not have
     *  to do anything to the code in this method.
     */
@@ -94,7 +109,7 @@ public class RedBoxMachine
          Scanner sn = new Scanner(new File("MovieList.txt"));
          while(sn.hasNextLine())
             returnMovie(sn.nextLine());
-              
+
       }catch(FileNotFoundException e){
          String s = "File not found! Make sure that MovieList.txt ";
          s = s + "is in the same folder as the class.";
