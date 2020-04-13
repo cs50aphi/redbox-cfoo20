@@ -71,11 +71,11 @@ public class RedBoxUI
             int found = rm.searchForMovie(title);
             if (found == -1)
             {
-               System.out.println(title + "was not found.");
+               System.out.println(title + " was not found.");
             }
             else
             {
-               System.out.println(title + "was found.");
+               System.out.println(title + " was found.");
             }
 
          }

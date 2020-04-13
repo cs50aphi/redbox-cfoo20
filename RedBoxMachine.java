@@ -14,7 +14,7 @@ public class RedBoxMachine
    //Create an instance variable to hold all of the DVDs.
 
    /** the list of DVDs */
-   private ArrayList<DVD> movies = new ArrayList<DVD>();
+   private ArrayList<DVD> movies;
    /** Constructs a Redbox Machine and fills it with DVDs
     *  Reads the file MovieList.txt so make sure that the
     *  file is in the same folder as the RedboxMachine.class
@@ -24,11 +24,9 @@ public class RedBoxMachine
    public RedBoxMachine()
    {
       // Complete the constructor.
-      // ArrayList<DVD> movies = new ArrayList<DVD>();
-      movies.add(new DVD("Hello"));
-      System.out.println(movies.toString());
+      movies = new ArrayList<DVD>();
       // Leave this method. It will fill the machine with DVDs.
-      // fillMachine();
+      fillMachine();
    }
 
    /** Searches for the movie with the provided title and returns
@@ -42,12 +40,19 @@ public class RedBoxMachine
    {
       // Complete the method to search for a movie.
       // If placement is -1, then the movie isn't there.
-      if (movies.indexOf(title) < 0)
-      {
-         return -1;
-      }
       // Find the index of i if the movie is there.
-      return movies.indexOf(title);
+      // loop through arraylist for title
+      for (DVD movie : movies)
+      {
+         // if already exists
+         if (movie.getTitle().equals(title))
+         {
+            // add 1 copy
+            movie.incrementCopies();
+            return movies.indexOf(movie);
+         }
+      }
+      return -1;
    }
 
    /** Returns the titles of all available DVD's in
@@ -60,23 +65,24 @@ public class RedBoxMachine
       // Complete the method to get all available movie titles.
       ArrayList<String> titles = new ArrayList<String>();
       // loop through arraylist for title
-      for (DVD movie : movies)
-      {
-         // if already exists
-         if (movie.getTitle().equals(title))
-         {
-            // add 1 copy
-            movie.incrementCopies();
-            return movies.indexOf(movie);
-         }
-      }
-      for (DVD movie : movies)
-      {
-         if (movie.getNumCopies() > 0)
-         {
-            titles.add(movie.getTitle());
-         }
-      }
+      // for (DVD movie : movies)
+      // {
+      //    // if already exists
+      //    if (movie.getTitle().equals(title))
+      //    {
+      //       // add 1 copy
+      //       movie.incrementCopies();
+      //       return movies.indexOf(movie);
+      //    }
+      // }
+      // for (DVD movie : movies)
+      // {
+      //    if (movie.getNumCopies() > 0)
+      //    {
+      //       titles.add(movie.getTitle());
+      //    }
+      // }
+      System.out.println(movies.toString());
       return titles;
    }
 
@@ -91,16 +97,16 @@ public class RedBoxMachine
    {
       // Complete the method to rent a movie.
       // loop through arraylist for title
-      for (DVD movie : movies)
-      {
-         // if already exists
-         if (movie.getTitle().equals(title))
-         {
-            // add 1 copy
-            movie.incrementCopies();
-            return movies.indexOf(movie);
-         }
-      }
+      // for (DVD movie : movies)
+      // {
+      //    // if already exists
+      //    if (movie.getTitle().equals(title))
+      //    {
+      //       // add 1 copy
+      //       movie.incrementCopies();
+      //       return movies.indexOf(movie);
+      //    }
+      // }
       if (movies.indexOf(title) >= 0)
       {
           movies.get(movies.indexOf(title)).decrementCopies();
@@ -134,12 +140,10 @@ public class RedBoxMachine
          }
       }
       // if doesn't exist, add to movies
-      System.out.println("Test");
-      movies.add(new DVD(title));
-      System.out.println(movies.toString());
-      System.out.println("Test 2");
+      DVD testing = new DVD(title);
+      movies.add(testing);
 
-      return DVD(title);
+      return testing;
    }
 
    /** This method fills the machine with movies. You do not have
