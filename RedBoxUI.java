@@ -41,11 +41,11 @@ public class RedBoxUI
             // the movie they enter is not available).
             if (rm.rent(title))
             {
-               System.out.println("Movie successfully rented!")
+               System.out.println("Movie successfully rented!");
             }
             else
             {
-               System.out.println("This movie is unavailable.")
+               System.out.println("This movie is unavailable.");
             }
          }
          else if(option == 3)
@@ -55,8 +55,8 @@ public class RedBoxUI
 
             // Complete the code to return a movie. Make sure to include a
             // message after the movie has been returned.
-            returnMovie(title);
-            System.out.println("Your DVD " + title + " has been returned.")
+            rm.returnMovie(title);
+            System.out.println("Your DVD " + title + " has been returned.");
          }
          else if(option == 4)
          {
@@ -65,6 +65,15 @@ public class RedBoxUI
 
             // Complete the code to search for a movie.  Make sure to include
             // messages that inform the user whether the movie was found or not.
+            int found = rm.searchForMovie(title);
+            if (found == -1)
+            {
+               System.out.println(title + "was not found.");
+            }
+            else
+            {
+               System.out.println(title + "was not found.");
+            }
 
          }
          else if(option == 5)
