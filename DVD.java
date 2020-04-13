@@ -3,9 +3,9 @@ public class DVD
    //Declare the class variables.
    
    /** the title of the DVD */
-
+   private String title;
    /** the number of available copies */
-
+   private int copies;
    
    /** Constructs a DVD object and sets the number of copies
     *  to 1.
