@@ -112,7 +112,7 @@ public class RedBoxMachine
       System.out.println("Test");
       movies.add(testing);
       System.out.println(movies.toString());
-      System.out.println(movies.indexOf(title));
+      System.out.println(movies.getTitle(indexOf(title)));
       System.out.println("Test 2");
       // }
 
