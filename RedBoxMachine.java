@@ -65,24 +65,12 @@ public class RedBoxMachine
       // Complete the method to get all available movie titles.
       ArrayList<String> titles = new ArrayList<String>();
       // loop through arraylist for title
-      // for (DVD movie : movies)
-      // {
-      //    // if already exists
-      //    if (movie.getTitle().equals(title))
-      //    {
-      //       // add 1 copy
-      //       movie.incrementCopies();
-      //       return movies.indexOf(movie);
-      //    }
-      // }
-      // for (DVD movie : movies)
-      // {
-      //    if (movie.getNumCopies() > 0)
-      //    {
-      //       titles.add(movie.getTitle());
-      //    }
-      // }
-      System.out.println(movies.toString());
+      for (DVD movie : movies)
+      {
+         // add each title of movie to titles
+         titles.add(movie.getTitle());
+      }
+      // System.out.println(movies.toString());
       return titles;
    }
 

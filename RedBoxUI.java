@@ -26,10 +26,8 @@ public class RedBoxUI
             //Complete the code to List Available Titles.
             ArrayList<String> availableTitles = new ArrayList<String>();
             availableTitles = rm.getAvailableMovies();
-            for (String movie : availableTitles)
-            {
-               System.out.println(availableTitles.toString());
-            }
+            // print out each movie title
+            System.out.println(availableTitles.toString());
 
             System.out.println("PRESS ENTER TO GO BACK TO THE MENU");
             sn.nextLine();
